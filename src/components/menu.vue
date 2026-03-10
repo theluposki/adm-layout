@@ -7,7 +7,7 @@ import { useProfileStore } from '@/stores/useProfileStore'
 import NavGroup from './navGroup.vue';
 
 const profile = useProfileStore()
-// linkis
+// linkis 
 const navLinks = [
   { to: '/',      icon: 'ri-home-3-line',       label: 'Início' },
   { to: '/about', icon: 'ri-information-2-line', label: 'Sobre' },
