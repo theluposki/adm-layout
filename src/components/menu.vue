@@ -5,11 +5,14 @@ import DetailsProfile from '@/components/detailsProfile.vue';
 import { Emitter } from '@/utils/Emitter.js'
 import { useProfileStore } from '@/stores/useProfileStore'
 import NavGroup from './navGroup.vue';
+import { ref } from 'vue';
 
-const profile = useProfileStore()
+const profile = useProfileStore();
+
+const version = ref(__APP_VERSION__);
 // linkis 
 const navLinks = [
-  { to: '/',      icon: 'ri-home-3-line',       label: 'Início' },
+  { to: '/', icon: 'ri-home-3-line', label: 'Início' },
   { to: '/about', icon: 'ri-information-2-line', label: 'Sobre' },
   {
     type: 'group',
@@ -17,7 +20,7 @@ const navLinks = [
     icon: 'ri-user-community-fill',
     basePath: '/users',
     links: [
-      { to: '/users',     icon: 'ri-list-check',   label: 'Lista' },
+      { to: '/users', icon: 'ri-list-check', label: 'Lista' },
       { to: '/users/add', icon: 'ri-user-add-line', label: 'Adicionar' },
     ]
   },
@@ -38,21 +41,9 @@ const closeMenu = () => {
 
     <main class="main-menu">
       <template v-for="link in navLinks" :key="link.to ?? link.basePath">
-        <NavGroup
-          v-if="link.type === 'group'"
-          :label="link.label"
-          :icon="link.icon"
-          :basePath="link.basePath"
-          :links="link.links"
-          @close="closeMenu"
-        />
-        <RouterLink
-          v-else
-          :to="link.to"
-          class="nav-link"
-          exact-active-class="active"
-          @click="closeMenu"
-        >
+        <NavGroup v-if="link.type === 'group'" :label="link.label" :icon="link.icon" :basePath="link.basePath"
+          :links="link.links" @close="closeMenu" />
+        <RouterLink v-else :to="link.to" class="nav-link" exact-active-class="active" @click="closeMenu">
           <i :class="link.icon"></i>
           <span>{{ link.label }}</span>
         </RouterLink>
@@ -64,6 +55,7 @@ const closeMenu = () => {
         <i class="ri-logout-circle-line"></i>
         <span>Sair</span>
       </div>
+      <span class="version">sys adm:&nbsp;<strong>{{ version }}</strong></span>
     </footer>
   </div>
 </template>
@@ -113,7 +105,17 @@ const closeMenu = () => {
   height: var(--h-hearder-menu);
   display: flex;
   align-items: center;
+  flex-direction: column;
+  gap: 12px;
   padding: 0 var(--p);
+
+  & .version {
+    font-size: 12px;
+
+    & strong {
+      color: var(--text-h1);
+    }
+  }
 
   & .link-btn-logout {
     display: flex;
@@ -129,8 +131,13 @@ const closeMenu = () => {
       inset 0 0 1px var(--line-painel);
     cursor: pointer;
 
-    & i { font-size: 26px; }
-    &:active { scale: .95; }
+    & i {
+      font-size: 26px;
+    }
+
+    &:active {
+      scale: .95;
+    }
   }
 }
 
@@ -141,14 +148,25 @@ const closeMenu = () => {
   align-items: center;
   gap: var(--p);
   padding: 0 var(--p);
+  min-height: var(--wh-btn);
   height: var(--wh-btn);
+  border-radius: var(--r);
+
+  &:hover {
+    transition: all ease .4s;
+    background-color: var(--text-h1-rgba);
+  }
 
   &.active {
     background-color: var(--active-painel);
-    border-radius: var(--r);
   }
 
-  & i { font-size: 26px; }
-  &:active { scale: .95; }
+  & i {
+    font-size: 26px;
+  }
+
+  &:active {
+    scale: .95;
+  }
 }
 </style>

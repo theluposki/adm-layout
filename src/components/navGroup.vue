@@ -73,6 +73,11 @@ const handleClick = () => {
   height: var(--wh-btn);
   border-radius: var(--r);
 
+  &:hover {
+    transition: all ease .4s;
+    background-color: var(--text-h1-rgba);
+  }
+
   &.active {
     background-color: var(--active-painel);
   }
@@ -118,7 +123,6 @@ const handleClick = () => {
 
 .submenu.open {
   max-height: 500px;
-  /* maior que qualquer submenu possível */
   opacity: 1;
   transform: translateY(0);
 }

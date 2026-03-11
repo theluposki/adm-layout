@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && npm version patch && gh-pages -d dist",
+    "patch": "npm version patch && npm run deploy",
+    "minor": "npm version minor && npm run deploy",
+    "major": "npm version major && npm run deploy"
   },
   "dependencies": {
     "dexie": "^4.3.0",
@@ -18,6 +22,7 @@
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "^2.1.4",
     "@vitejs/plugin-vue": "^6.0.2",
+    "gh-pages": "^6.3.0",
     "vite": "^7.3.1"
   }
 }

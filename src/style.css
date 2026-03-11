@@ -3,6 +3,10 @@
 *,*::before,*::after {
   margin: 0;
   box-sizing: border-box;
+
+    /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--active-painel) transparent;
 }
 
 :root {
@@ -33,7 +37,7 @@
 --dark3-rgba: rgba(90, 90, 90, 1);
 --dark4-rgba: rgba(112, 112, 112, 1);
 
---blue-rgba: rgba(118, 210, 219, 1);
+--blue-rgba: rgba(118, 210, 219, .1);
 --blue2-rgba: rgba(54, 6, 77, 1);
 --red-rgba: rgba(218, 68, 72, .7);
 --marron-rgba: rgba(65, 67, 27, 1);
@@ -61,6 +65,7 @@
   
   --text: var(--dark);
   --text-h1: var(--blue);
+  --text-h1-rgba: var(--blue-rgba);
 
 
     /* Renderização */
@@ -128,3 +133,22 @@ body {
     scale: .95;
   }
 }
+
+/* Barra de rolagem */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--active-painel);
+  border-radius: 99px;
+
+  &:hover {
+    background-color: var(--dark3);
+  }
+}
+
