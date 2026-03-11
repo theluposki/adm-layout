@@ -7,7 +7,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && npm version patch && gh-pages -d dist --dotfiles",
+    "deploy": "npm version patch && npm run build &&  gh-pages -d dist --dotfiles",
     "patch": "npm version patch && npm run deploy",
     "minor": "npm version minor && npm run deploy",
     "major": "npm version major && npm run deploy"

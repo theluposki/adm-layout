@@ -3,6 +3,8 @@ import HeaderM from './components/headerM.vue';
 import { RouterView, useRoute } from 'vue-router';
 import Menu from '@/components/menu.vue'
 import { Emitter } from '@/utils/Emitter.js'
+import { useSwipe } from '@/utils/useSwipe.js'
+import { haptic } from '@/utils/haptic.js'
 import { ref, onMounted } from 'vue'
 import { useProfileStore } from '@/stores/useProfileStore'
 
@@ -16,6 +18,21 @@ onMounted(async () => {
 
 Emitter.on('open-menu', () => { isActive.value = true })
 Emitter.on('close-menu', () => { isActive.value = false })
+
+useSwipe({
+  onSwipeRight: () => {
+    if (!isActive.value) {
+      haptic()
+      isActive.value = true
+    }
+  },
+  onSwipeLeft: () => {
+    if (isActive.value) {
+      haptic()
+      isActive.value = false
+    }
+  }
+})
 </script>
 
 <template>
