@@ -151,6 +151,13 @@ body {
   }
 }
 
+.btn-full {
+  background-color: var(--bg-painel);
+  border: solid 1px var(--bg-painel);
+  font-weight: bold;
+  width: 100%;
+}
+
 /* Barra de rolagem */
 ::-webkit-scrollbar {
   width: 6px;
