@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/adm-layout/sw.js', { scope: '/adm-layout/' })})}

@@ -1,1 +1,0 @@
-import{_ as s,c as t,a as o,o as a}from"./index-CQpjZRbG.js";const r={},c={class:"page"};function n(l,e){return a(),t("div",c,[...e[0]||(e[0]=[o("h1",null,"lista de usuários",-1)])])}const i=s(r,[["render",n]]);export{i as default};
