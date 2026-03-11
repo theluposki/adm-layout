@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import Avatar from '@/components/avatar.vue';
 import DetailsProfile from '@/components/detailsProfile.vue';
 import { Emitter } from '@/utils/Emitter.js'
@@ -9,7 +9,7 @@ import { ref } from 'vue';
 import { haptic } from '../utils/haptic.js';
 
 const profile = useProfileStore();
-
+const { push } = useRouter();
 const version = ref(__APP_VERSION__);
 // linkis 
 const navLinks = [
@@ -28,6 +28,12 @@ const navLinks = [
   { to: '/setup', icon: 'ri-settings-2-line', label: 'Configurações' },
 ]
 
+const toMy = () => {
+  Emitter.emit('close-menu');
+  haptic();
+  push('/users/my')
+}
+
 const closeMenu = () => {
   Emitter.emit('close-menu');
   haptic();
@@ -37,7 +43,7 @@ const closeMenu = () => {
 <template>
   <div class="container-menu">
     <header class="header-menu">
-      <Avatar wh="80px" :status="profile.status" :avatar="profile.avatar" :initials="profile.initials" />
+      <Avatar wh="80px" class="avatar" :status="profile.status" :avatar="profile.avatar" :initials="profile.initials"  @click="toMy"/>
       <DetailsProfile :name="profile.name" :nickname="profile.nickname" :jobTitle="profile.jobTitle" />
     </header>
 
@@ -92,6 +98,14 @@ const closeMenu = () => {
   align-items: center;
   padding: 0 var(--p);
   border-bottom: solid 1px var(--line-painel);
+
+  & .avatar {
+    cursor: pointer;
+
+    &:active {
+      scale: .95;
+    }
+  }
 }
 
 .main-menu {
