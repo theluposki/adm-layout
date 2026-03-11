@@ -84,9 +84,11 @@
 
   /* Drag */
   -webkit-user-drag: none;
+
+  user-select: none;
 }
 
-body {
+html, body {
   width: var(--w);
   height: var(--h);
   
