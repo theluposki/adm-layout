@@ -6,7 +6,7 @@ import { Emitter } from '@/utils/Emitter.js'
 import { ref, onMounted } from 'vue'
 import { useProfileStore } from '@/stores/useProfileStore'
 
-const isActive = ref(true)
+const isActive = ref(false)
 const profile = useProfileStore()
 
 onMounted(async () => {
