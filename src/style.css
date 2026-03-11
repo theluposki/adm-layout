@@ -68,7 +68,14 @@
   --text-h1-rgba: var(--blue-rgba);
 
 
-    /* Renderização */
+  /* z-index */
+
+  --z-base: 1;        /* elementos normais com empilhamento */
+  --z-header: 100;
+  --z-menu: 99;
+
+
+  /* Renderização */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -91,6 +98,7 @@
 html, body {
   width: var(--w);
   height: var(--h);
+  max-height: var(--h);
   
   background-color: var(--bg);
   font-family: "Exo 2", sans-serif;
@@ -103,6 +111,8 @@ html, body {
 #app {
   width: var(--w);
   height: var(--h);
+  max-height: var(--h);
+  overflow: hidden;
   position: relative;
 }
 

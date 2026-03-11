@@ -69,6 +69,8 @@ const closeMenu = () => {
   background-color: var(--bg-painel);
   color: var(--text-painel);
   overflow: hidden;
+  z-index: var(--z-menu);
+
   width: 280px;
   min-height: 400px;
   height: calc(var(--h) - var(--header) - 16px);

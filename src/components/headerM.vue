@@ -32,6 +32,8 @@ const closeMenu = () => {
 
 <style scoped>
 .headerM {
+  position: relative;
+  z-index: var(--z-header);
   width: var(--w);
   height: var(--header);
   background-color: var(--bg-painel);
