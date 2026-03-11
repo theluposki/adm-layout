@@ -7,6 +7,7 @@ import { useSwipe } from '@/utils/useSwipe.js'
 import { haptic } from '@/utils/haptic.js'
 import { ref, onMounted } from 'vue'
 import { useProfileStore } from '@/stores/useProfileStore'
+import ToastContainer from '@/components/toastContainer.vue'
 
 const isActive = ref(false)
 const profile = useProfileStore()
@@ -37,6 +38,8 @@ useSwipe({
 
 <template>
   <div>
+    <ToastContainer />
+
     <Transition name="slide-menu">
       <Menu v-show="isActive" />
     </Transition>
