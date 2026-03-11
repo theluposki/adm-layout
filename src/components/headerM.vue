@@ -39,6 +39,5 @@ const closeMenu = () => {
 
   display: flex;
   align-items: center;
-  box-shadow: -2px -2px 14px var(--dark);
 }
 </style>
