@@ -17,6 +17,9 @@ export default defineConfig(({ command }) => ({
       registerType: "autoUpdate",
       injectRegister: "auto",
 
+      // evita erro do terser no workbox
+      minify: false,
+
       includeAssets: [
         "favicon.ico",
         "logo-192x192.png",
@@ -27,7 +30,12 @@ export default defineConfig(({ command }) => ({
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
-        maximumFileSizeToCacheInBytes: 5000000
+
+        // evita erro com arquivos grandes
+        maximumFileSizeToCacheInBytes: 5000000,
+
+        // ignora svg gigantes
+        globIgnores: ["**/*.svg"]
       },
 
       manifest: {
