@@ -23,7 +23,7 @@ const info = () => {
     <div class="container">
       <div class="btn btn-full" @click="save">Salvar</div>
       <div class="btn btn-full" @click="error">Erro</div>
-      <div class="btn btn-full" @click="info">Info</div>
+      <div class="btn btn-full" @click="info">Info Usuário</div>
     </div>
   </div>
 </template>

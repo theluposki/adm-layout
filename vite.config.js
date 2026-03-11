@@ -13,6 +13,7 @@ export default defineConfig(({ command }) => ({
     command === 'serve' && basicSsl(),
     VitePWA({
       registerType: 'autoUpdate',
+      minify: false,
       includeAssets: ['favicon.ico', 'logo-192x192.png', 'logo-512x512.png'],
       manifest: {
         name: 'ADM Layout',
