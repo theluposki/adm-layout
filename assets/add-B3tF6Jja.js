@@ -1,1 +1,0 @@
-import{_ as o,c as s,a,o as n}from"./index-Du86xfsP.js";const r={},t={class:"page"};function c(d,e){return n(),s("div",t,[...e[0]||(e[0]=[a("h1",null,"Adicionar novo usúarios",-1)])])}const i=o(r,[["render",c]]);export{i as default};
