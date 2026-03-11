@@ -49,8 +49,8 @@
   --marron3-rgba: rgba(227, 219, 187, 1);
 
   /* TAMANHOS */
-  --w: 100dvw;
-  --h: 100dvh;
+  --w: 100svw;
+  --h: 100svh;
   --p: 12px;
   --r: 4px;
 
