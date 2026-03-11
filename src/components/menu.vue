@@ -6,6 +6,7 @@ import { Emitter } from '@/utils/Emitter.js'
 import { useProfileStore } from '@/stores/useProfileStore'
 import NavGroup from './navGroup.vue';
 import { ref } from 'vue';
+import { haptic } from '../utils/haptic.js';
 
 const profile = useProfileStore();
 
@@ -29,6 +30,7 @@ const navLinks = [
 
 const closeMenu = () => {
   Emitter.emit('close-menu');
+  haptic();
 }
 </script>
 
