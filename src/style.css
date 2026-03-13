@@ -24,8 +24,8 @@
   --dark3: #5a5a5a;
   --dark4: #707070;
 
-  --blue: #76d2db;
-  --blue2: #36064d;
+  --blue: #1e4f8e;
+  --blue2: #071e3b;
   --red: #da4848;
   --marron: #41431b;
   --maron2: #aeb784;
@@ -69,6 +69,7 @@
   --text: var(--dark);
   --text-h1: var(--blue);
   --text-h1-rgba: var(--blue-rgba);
+  --text-muted: var(--dark4);
 
   /* z-index */
 
@@ -174,4 +175,10 @@ body {
   &:hover {
     background-color: var(--dark3);
   }
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+  padding: var(--p);
 }
