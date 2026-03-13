@@ -1,1 +1,0 @@
-import{_ as s,c as o,a as t,o as r}from"./index-th11AVoj.js";const a={},c={class:"page"};function n(_,e){return r(),o("div",c,[...e[0]||(e[0]=[t("h1",null,"Meu Perfil",-1)])])}const f=s(a,[["render",n]]);export{f as default};
