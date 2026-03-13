@@ -11,7 +11,7 @@ import { haptic } from '../utils/haptic.js';
 const profile = useProfileStore();
 const { push } = useRouter();
 const version = ref(__APP_VERSION__);
-// linkis 
+
 const navLinks = [
   { to: '/', icon: 'ri-home-3-line', label: 'Início' },
   { to: '/about', icon: 'ri-information-2-line', label: 'Sobre' },
@@ -43,10 +43,15 @@ const closeMenu = () => {
 <template>
   <div class="container-menu">
     <header class="header-menu">
-      <Avatar wh="80px" class="avatar" :status="profile.status" :avatar="profile.avatar" :initials="profile.initials"  @click="toMy"/>
+      <Avatar
+        wh="80px"
+        class="avatar"
+        :status="profile.status"
+        :imageProfile="profile.avatar ?? undefined"
+        @click="toMy"
+      />
       <DetailsProfile :name="profile.name" :nickname="profile.nickname" :jobTitle="profile.jobTitle" />
     </header>
-
     <main class="main-menu">
       <template v-for="link in navLinks" :key="link.to ?? link.basePath">
         <NavGroup v-if="link.type === 'group'" :label="link.label" :icon="link.icon" :basePath="link.basePath"
@@ -57,7 +62,6 @@ const closeMenu = () => {
         </RouterLink>
       </template>
     </main>
-
     <footer class="footer-menu">
       <div class="link-btn-logout">
         <i class="ri-logout-circle-line"></i>
@@ -78,7 +82,6 @@ const closeMenu = () => {
   color: var(--text-painel);
   overflow: hidden;
   z-index: var(--z-menu);
-
   width: 280px;
   min-height: 400px;
   height: calc(var(--h) - var(--header) - 16px);
@@ -90,7 +93,6 @@ const closeMenu = () => {
   border-radius: 0 0 12px 0;
   box-shadow: 0 0 14px var(--dark);
 }
-
 .header-menu {
   width: 100%;
   height: var(--h-hearder-menu);
@@ -98,16 +100,13 @@ const closeMenu = () => {
   align-items: center;
   padding: 0 var(--p);
   border-bottom: solid 1px var(--line-painel);
-
   & .avatar {
     cursor: pointer;
-
     &:active {
       scale: .95;
     }
   }
 }
-
 .main-menu {
   width: 100%;
   flex: 1;
@@ -117,7 +116,6 @@ const closeMenu = () => {
   padding: var(--p);
   overflow-y: auto;
 }
-
 .footer-menu {
   width: 100%;
   height: var(--h-hearder-menu);
@@ -126,15 +124,12 @@ const closeMenu = () => {
   flex-direction: column;
   gap: 12px;
   padding: 0 var(--p);
-
   & .version {
     font-size: 12px;
-
     & strong {
       color: var(--text-h1);
     }
   }
-
   & .link-btn-logout {
     display: flex;
     align-items: center;
@@ -148,17 +143,14 @@ const closeMenu = () => {
     box-shadow: 0 0 2px var(--line-painel),
       inset 0 0 1px var(--line-painel);
     cursor: pointer;
-
     & i {
       font-size: 26px;
     }
-
     &:active {
       scale: .95;
     }
   }
 }
-
 .nav-link {
   text-decoration: none;
   color: var(--text-painel);
@@ -169,20 +161,16 @@ const closeMenu = () => {
   min-height: var(--wh-btn);
   height: var(--wh-btn);
   border-radius: var(--r);
-
   &:hover {
     transition: all ease .4s;
     background-color: var(--text-h1-rgba);
   }
-
   &.active {
     background-color: var(--active-painel);
   }
-
   & i {
     font-size: 26px;
   }
-
   &:active {
     scale: .95;
   }

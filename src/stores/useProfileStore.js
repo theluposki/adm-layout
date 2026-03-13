@@ -7,9 +7,11 @@ export const useProfileStore = defineStore("profile", () => {
   const id = ref(null);
   const name = ref("Lucas Pereira de Oliveira");
   const nickname = ref("lupoanon");
-  const jobTitle = ref("Adiministrador");
+  const email = ref("");
+  const jobTitle = ref("Administrador");
   const status = ref("online");
   const avatar = ref(null);
+  const coverImage = ref(null);
   const settings = ref({
     theme: "dark",
     language: "pt-BR",
@@ -38,9 +40,11 @@ export const useProfileStore = defineStore("profile", () => {
       id.value = saved.id;
       name.value = saved.name;
       nickname.value = saved.nickname;
+      email.value = saved.email ?? "";
       jobTitle.value = saved.jobTitle;
       status.value = saved.status;
       avatar.value = saved.avatar;
+      coverImage.value = saved.coverImage ?? null;
       settings.value = saved.settings ?? settings.value;
     } else {
       // Primeira vez: cria perfil padrão
@@ -55,9 +59,11 @@ export const useProfileStore = defineStore("profile", () => {
     const data = {
       name: name.value,
       nickname: nickname.value,
+      email: email.value,
       jobTitle: jobTitle.value,
       status: status.value,
       avatar: avatar.value,
+      coverImage: coverImage.value,
       settings: JSON.parse(JSON.stringify(settings.value)),
     };
 
@@ -77,6 +83,10 @@ export const useProfileStore = defineStore("profile", () => {
     nickname.value = val;
     await _save();
   }
+  async function setEmail(val) {
+    email.value = val;
+    await _save();
+  }
   async function setJobTitle(val) {
     jobTitle.value = val;
     await _save();
@@ -89,28 +99,47 @@ export const useProfileStore = defineStore("profile", () => {
     avatar.value = val;
     await _save();
   }
+  async function setCoverImage(val) {
+    coverImage.value = val;
+    await _save();
+  }
 
   async function updateSettings(partial) {
     settings.value = { ...settings.value, ...partial };
     await _save();
   }
 
+  // Lê arquivo e salva como base64
+  function _fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
   async function uploadAvatar(file) {
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      avatar.value = e.target.result;
-      await _save();
-    };
-    reader.readAsDataURL(file);
+    const base64 = await _fileToBase64(file);
+    avatar.value = base64;
+    await _save();
+  }
+
+  async function uploadCoverImage(file) {
+    const base64 = await _fileToBase64(file);
+    coverImage.value = base64;
+    await _save();
   }
 
   return {
     id,
     name,
     nickname,
+    email,
     jobTitle,
     status,
     avatar,
+    coverImage,
     settings,
     isLoaded,
     initials,
@@ -118,10 +147,13 @@ export const useProfileStore = defineStore("profile", () => {
     loadProfile,
     setName,
     setNickname,
+    setEmail,
     setJobTitle,
     setStatus,
     setAvatar,
+    setCoverImage,
     updateSettings,
     uploadAvatar,
+    uploadCoverImage,
   };
 });

@@ -32,7 +32,9 @@ const outerRadius = computed(() => {
     class="avatar"
     :style="{
       width: wh,
-      height: wh
+      'min-width': wh,
+      height: wh,
+      'min-height': wh
     }"
   >
 
