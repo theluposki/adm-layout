@@ -15,8 +15,7 @@ avatar
        <Avatar 
        wh="150px" 
        :status="status" 
-       :avatar="avatar" 
-       :initials="initials"
+       :avatar="avatar"
        />
     </div>
     
