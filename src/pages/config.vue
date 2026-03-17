@@ -1,7 +1,8 @@
 <script setup>
 import { useToast } from '@/utils/useToast.js'
 import ThemeEditor from '@/components/ThemeEditor.vue'
-const toast = useToast()
+
+const toast = useToast();
 
 
 const save = () => {

@@ -1,8 +1,10 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import { db } from "@/db/db.js";
+import { useToast } from "@/utils/useToast.js";
 
 export const useProfileStore = defineStore("profile", () => {
+  const toast = useToast();
   // ─── State ───────────────────────────────────────
   const id = ref(null);
   const name = ref("Lucas Pereira de Oliveira");
@@ -78,30 +80,37 @@ export const useProfileStore = defineStore("profile", () => {
   async function setName(val) {
     name.value = val;
     await _save();
+    toast.success('nome salvo!');
   }
   async function setNickname(val) {
     nickname.value = val;
     await _save();
+    toast.success('nickname salvo!');
   }
   async function setEmail(val) {
     email.value = val;
     await _save();
+    toast.success('e-mail salvo!');
   }
   async function setJobTitle(val) {
     jobTitle.value = val;
     await _save();
+    toast.success('JobTitle salvo!');
   }
   async function setStatus(val) {
     status.value = val;
     await _save();
+    toast.info('status alterado!');
   }
   async function setAvatar(val) {
     avatar.value = val;
     await _save();
+    toast.success('avatar salvo!');
   }
   async function setCoverImage(val) {
     coverImage.value = val;
     await _save();
+    toast.success('foto de capa alterada!');
   }
 
   async function updateSettings(partial) {
