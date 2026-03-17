@@ -132,6 +132,7 @@ function onEmailInput(val) {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  image-rendering: pixelated;
   box-shadow: 0 0 13px var(--dark);
   cursor: pointer;
   overflow: hidden;
