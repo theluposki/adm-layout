@@ -25,9 +25,10 @@
   --dark4: #707070;
 
   --blue: #1e4f8e;
-  --blue2: #071e3b;
+  --blue2: rgba(13, 99, 81, 0.8);
   --red: #da4848;
-  --marron: #41431b;
+  /* --marron: #41431b; */
+  --marron: #856351;
   --maron2: #aeb784;
   --marron3: #e3dbbb;
 
@@ -60,11 +61,11 @@
 
   /* TEMA */
   --bg: var(--marron3);
-  --bg-painel: var(--marron);
+  --bg-painel: #3b3b52; /* var(--marron); */
   --text-painel: var(--white);
   --line-painel: var(--dark);
-  --active-painel: var(--red);
-  --active-painel-rgba: var(--red-rgba);
+  --active-painel: #856351; /* var(--red); */
+  --active-painel-rgba: rgba(133, 99, 81, 0.4); /* var(--red-rgba); */
 
   --text: var(--dark);
   --text-h1: var(--blue);

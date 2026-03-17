@@ -7,7 +7,7 @@ import { loadTheme } from "@/composables/useTheme.js";
 import { useProfileStore } from "@/stores/useProfileStore.js";
 import App from "./App.vue";
 
-loadTheme();
+// loadTheme();
 
 const app = createApp(App);
 const pinia = createPinia();

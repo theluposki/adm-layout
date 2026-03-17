@@ -187,7 +187,7 @@ function onEmailInput(val) {
 .avatar-overlay {
   position: absolute;
   inset: 0;
-  border-radius: 50%;
+  border-radius: 4px;
   background: rgba(0, 0, 0, 0);
   display: flex;
   align-items: center;

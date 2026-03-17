@@ -1,6 +1,6 @@
 <script setup>
 import { useToast } from '@/utils/useToast.js'
-import ThemeEditor from '@/components/ThemeEditor.vue'
+// import ThemeEditor from '@/components/ThemeEditor.vue'
 
 const toast = useToast();
 
@@ -28,7 +28,7 @@ const info = () => {
       <div class="btn btn-full" @click="info">Info Usuário</div>
     </div>
 
-    <ThemeEditor />
+    <!-- <ThemeEditor /> -->
   </div>
 </template>
 

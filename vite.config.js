@@ -19,7 +19,7 @@ export default defineConfig(({ command }) => ({
         name: 'ADM Layout',
         short_name: 'ADM',
         description: 'Painel administrativo',
-        theme_color: '#41431B',
+        theme_color: '#3b3b52',
         background_color: '#E3DBBB',
         display: 'standalone',
         scope: '/adm-layout/',
