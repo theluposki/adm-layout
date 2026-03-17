@@ -40,8 +40,6 @@ const closeMenu = () => {
   Emitter.emit('close-menu');
   haptic();
 }
-
-console.log(coverImage.value)
 </script>
 
 <template>

@@ -6,18 +6,12 @@ const { toasts, remove } = useToast()
 <template>
   <div class="toast-container">
     <TransitionGroup name="toast">
-      <div
-        v-for="toast in toasts"
-        :key="toast.id"
-        class="toast"
-        :class="toast.type"
-        @click="remove(toast.id)"
-      >
+      <div v-for="toast in toasts" :key="toast.id" class="toast" :class="toast.type" @click="remove(toast.id)">
         <i :class="{
           'ri-checkbox-circle-line': toast.type === 'success',
-          'ri-error-warning-line':   toast.type === 'error',
-          'ri-information-line':     toast.type === 'info',
-          'ri-notification-3-line':  toast.type === 'default',
+          'ri-error-warning-line': toast.type === 'error',
+          'ri-information-line': toast.type === 'info',
+          'ri-notification-3-line': toast.type === 'default',
         }"></i>
         <span>{{ toast.message }}</span>
       </div>
@@ -49,23 +43,52 @@ const { toasts, remove } = useToast()
   white-space: nowrap;
   cursor: pointer;
   pointer-events: all;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
 
   background-color: var(--dark1);
   color: var(--white);
 
-  &.success { background-color: var(--marron);  color: var(--maron2); }
-  &.error   { background-color: var(--red);     color: var(--white);  }
-  &.info    { background-color: var(--blue2);   color: var(--blue);   }
+  &.success {
+    background-color: var(--bg-painel);
+    color: var(--white);
+  }
 
-  & i { font-size: 20px; }
+  &.error {
+    background-color: var(--red);
+    color: var(--white);
+  }
+
+  &.info {
+    background-color: var(--blue2);
+    color: var(--white);
+  }
+
+  & i {
+    font-size: 20px;
+  }
 }
 
 /* Animação */
-.toast-enter-active { transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-.toast-leave-active { transition: all 0.2s ease; }
-.toast-enter-from   { opacity: 0; transform: translateY(20px) scale(0.9); }
-.toast-leave-to     { opacity: 0; transform: translateY(10px) scale(0.95); }
-.toast-move         { transition: transform 0.3s ease; }
+.toast-enter-active {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-leave-active {
+  transition: all 0.2s ease;
+}
+
+.toast-enter-from {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+}
+
+.toast-move {
+  transition: transform 0.3s ease;
+}
 </style>

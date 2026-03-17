@@ -34,6 +34,13 @@ useSwipe({
     }
   }
 })
+
+const handleClose = () => {
+  if (isActive.value) {
+    haptic()
+    isActive.value = false
+  }
+}
 </script>
 
 <template>
@@ -45,7 +52,7 @@ useSwipe({
     </Transition>
     <HeaderM :isActive="isActive" />
 
-    <RouterView v-slot="{ Component }">
+    <RouterView v-slot="{ Component }" @click="handleClose">
       <Transition name="page" mode="out-in">
         <component :is="Component" :key="route.path" />
       </Transition>
@@ -59,10 +66,12 @@ useSwipe({
 .slide-menu-leave-active {
   transition: transform 0.3s ease;
 }
+
 .slide-menu-enter-from,
 .slide-menu-leave-to {
   transform: translateX(-100%);
 }
+
 .slide-menu-enter-to,
 .slide-menu-leave-from {
   transform: translateX(0);
@@ -73,10 +82,12 @@ useSwipe({
 .page-leave-active {
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
+
 .page-enter-from {
   opacity: 0;
   transform: translateX(16px);
 }
+
 .page-leave-to {
   opacity: 0;
   transform: translateX(-16px);
