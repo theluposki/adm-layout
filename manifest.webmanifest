@@ -5,7 +5,7 @@
   "start_url": "/adm-layout/",
   "display": "standalone",
   "background_color": "#E3DBBB",
-  "theme_color": "#41431B",
+  "theme_color": "#3b3b52",
   "lang": "en",
   "scope": "/adm-layout/",
   "icons": [
