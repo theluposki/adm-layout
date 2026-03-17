@@ -105,12 +105,10 @@ export const useProfileStore = defineStore("profile", () => {
   async function setAvatar(val) {
     avatar.value = val;
     await _save();
-    toast.success('avatar salvo!');
   }
   async function setCoverImage(val) {
     coverImage.value = val;
     await _save();
-    toast.success('foto de capa alterada!');
   }
 
   async function updateSettings(partial) {
@@ -132,12 +130,14 @@ export const useProfileStore = defineStore("profile", () => {
     const base64 = await _fileToBase64(file);
     avatar.value = base64;
     await _save();
+    toast.success('avatar salvo!');
   }
 
   async function uploadCoverImage(file) {
     const base64 = await _fileToBase64(file);
     coverImage.value = base64;
     await _save();
+    toast.success('foto de capa alterada!');
   }
 
   return {

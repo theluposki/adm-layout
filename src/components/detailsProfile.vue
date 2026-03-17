@@ -1,18 +1,18 @@
 <script setup>
-  defineProps({
-    name: {
-      type: String,
-      required: true
-    },
-    nickname: {
-      type: String,
-      required: true
-    },
-    jobTitle: {
-      type: String,
-      required: true
-    },
-  })
+defineProps({
+  name: {
+    type: String,
+    required: true
+  },
+  nickname: {
+    type: String,
+    required: true
+  },
+  jobTitle: {
+    type: String,
+    required: true
+  },
+})
 </script>
 
 <template>
@@ -35,20 +35,41 @@
 
 .detailsProfile .name {
   font-size: 18px;
-  color: var(--text-h1);
+  color: var(--white);
+  text-shadow: 1px 1px var(--dark);
   font-family: "Anton", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-transform: uppercase;
   line-height: .9;
 }
+
 .detailsProfile .nickname {
   font-size: 12px;
-  color: var(--line-painel);
   line-height: .9;
+  background-color: var(--active-painel);
+  color: var(--white);
+  padding: 2px 6px;
+  border-radius: 25px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 1px 1px 0px var(--dark);
+  box-shadow: 0 0 2px var(--dark);
 }
+
 .detailsProfile .jobTitle {
-  font-size: 10px;
-  color: var(--active-painel);
+  font-size: 8px;
+  color: var(--white);
+  text-shadow: 1px 1px 0px var(--dark);
+  background-color: var(--active-painel-rgba);
+  color: var(--white);
+  padding: 2px 6px;
+  border-radius: 4px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
