@@ -1,0 +1,1 @@
+import{_ as s,c as t,a as e,o as n}from"./index-B8UJjA_i.js";const o={},i={class:"page"};function a(r,l){return n(),t("div",i,[...l[0]||(l[0]=[e("h1",null,"lista de usuários",-1),e("ul",null,[e("li",null,"item 1"),e("li",null,"item 2"),e("li",null,"item 3")],-1)])])}const u=s(o,[["render",a]]);export{u as default};
